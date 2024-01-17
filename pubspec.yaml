@@ -30,6 +30,7 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  dialog_flowtter:
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -60,7 +61,7 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-     - assets/clean-medical-background/v870-tang-36.jpg
+     - assets/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

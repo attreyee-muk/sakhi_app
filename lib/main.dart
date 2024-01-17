@@ -1,10 +1,15 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/chatbot.dart';
+import 'package:flutter_pages/Messages.dart';
+import 'package:flutter_pages/chatbot_ui.dart';
 import 'package:flutter_pages/doctor_info.dart';
 import 'package:flutter_pages/faqs.dart';
+import 'package:flutter_pages/home_page.dart';
+
+import 'package:dialog_flowtter/dialog_flowtter.dart';
 
 void main() {
-  runApp(const InsightsPage());
+  runApp(const MyApp());
 }
 
 class MyApp extends StatefulWidget {
@@ -15,12 +20,25 @@ class MyApp extends StatefulWidget {
 }
 
 class _MyAppState extends State<MyApp> {
-  int currentPage=0;
-  List<Widget> pages=[
-    const DoctorInfo(),
-    const ChatBot(),
-    const InsightsPage(),
-    ];
+  int _page=0;
+  late PageController pageController;
+  final List messages=[];
+
+  void navigationTapped(int page){
+    pageController.jumpToPage(page);
+  }
+
+  void pagechanged(int page){
+    setState(() {
+      _page=page;
+    });
+  }
+  @override
+  void initState() {
+    super.initState();
+    pageController=PageController();
+  }
+
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
@@ -29,7 +47,7 @@ class _MyAppState extends State<MyApp> {
       title: 'Home Page',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
+        useMaterial3: true,         
       ),
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -82,58 +100,44 @@ class _MyAppState extends State<MyApp> {
             ],
           ),
         ),
-        body: Column(
-          //mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            Stack(
-              alignment: Alignment.center,
-              children: [
-              
-              Image.asset(
-                'assets/clean-medical-background/v870-tang-36.jpg',
-                //height: ,
-                width: double.infinity,
-              ),
-              const Column(
-                crossAxisAlignment: CrossAxisAlignment.center,
-                //mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Chip(label: Text("Something")),
-                  Chip(label: Text("Something")),
-                ],
-              ),
-            ]),
+        body: PageView(
+          physics: NeverScrollableScrollPhysics(),
+          children:  [
+            HomePage(),
+            Home(),
+            InsightsPage()
           ],
+          controller: pageController,
+          onPageChanged: pagechanged,
         ),
-        bottomNavigationBar: BottomNavigationBar(
-          // currentIndex: currentPage,
-          // onTap: (value){
-          //   setState(() {
-          //     currentPage=value;
-          //     print(currentPage);
-          //     Navigator.of(context).push(MaterialPageRoute(builder: (context){
-          //     return pages[currentPage];
-          //   }));
-          //   });
-          // },
+        bottomNavigationBar: CupertinoTabBar(
+          backgroundColor: Colors.red,
           items:  [
-            const BottomNavigationBarItem(
-            icon: Icon(Icons.medical_information),
-            label:"Doctor's info"),
-            const BottomNavigationBarItem(
-            icon: Icon(Icons.chat_bubble),
-            label:"Chatbot"),
-            BottomNavigationBarItem(icon: IconButton(icon:const Icon(Icons.info),
-            onPressed: () {
-              Navigator.of(context).push(MaterialPageRoute(builder: (context){
-                return const InsightsPage();
-              }));
-            }),
-            label: "Insights")
+            BottomNavigationBarItem(
+            icon: Icon(Icons.medical_information,
+            color: _page==0?Colors.white:Colors.yellow
+            ),
+            ),
+            BottomNavigationBarItem(
+            icon: Icon(Icons.chat_bubble,
+            color:_page==1?Colors.white:Colors.yellow,),
+            ),
+            BottomNavigationBarItem(
+              icon: Icon(Icons.info,
+              color:_page==2?Colors.white:Colors.yellow,),
+            ),
             ],
+            onTap: navigationTapped,
         ),
       ),
     );
   }
 }
+
+
+
+
+
+
+
+

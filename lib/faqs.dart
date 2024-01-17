@@ -27,9 +27,7 @@ class _InsightsPageState extends State<InsightsPage> {
   ];
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: Scaffold(
+    return Scaffold(
         appBar: AppBar(
           title: const Text("Insights Page"),
           centerTitle: true,
@@ -75,7 +73,6 @@ class _InsightsPageState extends State<InsightsPage> {
             ),
           ],
         ),
-      ),
-    );
+      );
   }
 }

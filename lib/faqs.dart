@@ -21,9 +21,9 @@ class InsightsPage extends StatefulWidget {
 
 class _InsightsPageState extends State<InsightsPage> {
   final List<Item> items = [
-    Item(heading: "HIhi", body: "hello"),
-    Item(heading: "HsdfsI", body: "hellohi"),
-    Item(heading: "HsdfsdfsI", body: "hellohihello"),
+    Item(heading: "What are the symptoms of PCOS", body: "Polycystic ovary syndrome is caused by an imbalance of androgens. Common symptoms include ovarian cysts, irregular menstrual periods, and hair on the face and body."),
+    Item(heading: "What are the symptoms of Endometriosis", body: "Endometriosis is a chronic condition where tissue similar to the lining of the uterus, called endometrium, grows outside the uterus. Common symptoms of endometriosis include debilitating pelvic pain, especially during menstruation, intercourse, or bowel movements. Women with endometriosis often experience heavy menstrual bleeding, irregular periods, and may have difficulty conceiving. Chronic pelvic pain can significantly impact daily activities and quality of life. In some cases, endometriosis may lead to the formation of scar tissue and adhesions, potentially causing organs to stick together."),
+    Item(heading: "What are the symptoms of UTI", body: "Urinary Tract Infection (UTI) is characterized by various symptoms stemming from the inflammation of the urinary tract, commonly caused by bacteria. The hallmark symptom is a persistent, burning sensation during urination. Individuals with UTIs may experience increased urgency and frequency of urination, often accompanied by lower abdominal pain or discomfort. The urine may appear cloudy or have a strong, unpleasant odor."),
   ];
   @override
   Widget build(BuildContext context) {

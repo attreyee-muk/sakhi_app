@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'main_tab/main_header.dart';
+
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
 
@@ -11,30 +13,19 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+
       body: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Stack(
-                alignment: Alignment.center,
-                children: [
-                
-                Image.asset(
-                  'assets/v870-tang-36.jpg',
-                  //height: ,
-                  width: double.infinity,
-                ),
-                const Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Chip(label: Text("Something")),
-                    Chip(label: Text("Something")),
-                  ],
-                ),
-              ]),
-            ],
+        children: [
+          // Include the HeaderWidget
+          AppHeader(),
+          // Add other widgets below the header
+          Expanded(
+            child: Center(
+              child: Text('Content'),
+            ),
           ),
+        ],
+      ),
     );
   }
 }

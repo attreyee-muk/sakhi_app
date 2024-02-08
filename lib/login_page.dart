@@ -1,6 +1,10 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_pages/main_tab/main_tab_view.dart';
 import 'package:flutter_pages/signup_page.dart';
+import 'package:flutter_pages/home_page.dart';
+import 'package:flutter_pages/uihelper.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -16,119 +20,70 @@ class _LoginPageState extends State<LoginPage> {
     }));
   }
 
+  login(String email, String password)async{
+    if (email=="" && password==""){
+      UiHelper.CustomAlertBox(context, "Enter required fields");
+    }
+    else{
+      UserCredential? usercredential;
+      try{
+        usercredential=await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password).then((value){
+          Navigator.push(context, MaterialPageRoute(builder: (context)=> MainTabView()));
+        });
+      }
+      on FirebaseAuthException catch(ex){
+        return UiHelper.CustomAlertBox(context, ex.code.toString());
+      }
+    }
+  }
+
   String name = "";
   @override
   Widget build(BuildContext context) {
-    final TextEditingController usercontroller = TextEditingController();
-    final TextEditingController passcontroller = TextEditingController();
+    TextEditingController emailController = TextEditingController();
+    TextEditingController passController = TextEditingController();
     final borderprops = OutlineInputBorder(borderRadius: BorderRadius.all(Radius.circular(30)));
     return Scaffold(
+        backgroundColor: Color.fromRGBO(255, 221, 230, 1.0),
         body: SafeArea(
             child: Container(
-             decoration: BoxDecoration(
-        gradient: LinearGradient(
-          colors: [
-            Color.fromARGB(255, 247, 145, 179),
-            Colors.white,
-          ],
-          begin: Alignment.topLeft,
-          end: Alignment.bottomRight,
-        ),
-      ),
+
+      //        decoration: BoxDecoration(
+      //   gradient: LinearGradient(
+      //     colors: [
+      //       Color.fromARGB(255, 247, 145, 179),
+      //       Colors.white,
+      //     ],
+      //     begin: Alignment.topLeft,
+      //     end: Alignment.bottomRight,
+      //   ),
+      // ), padding: EdgeInsets.symmetric(horizontal: 32),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                UiHelper.CustomTextField(emailController, "Email", Icons.mail, false),
+                UiHelper.CustomTextField(passController, "Password", Icons.password, true),
+                SizedBox(height:30),
+                UiHelper.CustomButton(() {
+                  login(emailController.text.toString(), passController.text.toString());
+                }, "Login"),
+                  SizedBox(height:20),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text("Don't have an account?", style:TextStyle(fontSize:16),),
+                      TextButton(onPressed: (){
+                        Navigator.push(context, MaterialPageRoute(builder: (context)=> SignUpPage()));
+                      }, child: Text("Sign Up", style:TextStyle(fontSize:20, fontWeight:FontWeight.w600, color: Colors.black)))
+                    ],
+                  )
+
+              ],
+
+              )
 
 
-              padding: EdgeInsets.symmetric(horizontal: 32),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.center,
-        children: [
-          //Text("HI ${name}"),
-          Flexible(
-            child: Container(),
-            flex: 2,
-          ),
-          Text(
-            "LOGIN",
-            style: TextStyle(
-                fontSize: 36, fontWeight: FontWeight.bold, color: Colors.white),
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          TextField(
-            controller: usercontroller,
-            decoration: InputDecoration(
-              fillColor: Color.fromRGBO(253, 198, 208, 100),
-              filled: true,
-              enabledBorder: borderprops,
-              disabledBorder: borderprops,
-              focusedBorder: borderprops,
-              hintText: "Enter your username",
-              prefixIcon: Icon(Icons.person),
-            ),
-            keyboardType: TextInputType.text,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          TextField(
-            controller: passcontroller,
-            decoration: InputDecoration(
-              fillColor: Color.fromRGBO(253, 198, 208, 100),
-              filled: true,
-              enabledBorder: borderprops,
-              disabledBorder: borderprops,
-              focusedBorder: borderprops,
-              hintText: "Enter your password",
-              prefixIcon: Icon(Icons.lock),
-            ),
-            keyboardType: TextInputType.text,
-            obscureText: true,
-          ),
-          SizedBox(
-            height: 20,
-          ),
-          ElevatedButton(
-            onPressed: () {
-              setState(() {
-                name = usercontroller.text;
-              });
-            },
-            child: Text("Login",style: TextStyle(
-              fontWeight: FontWeight.bold,
-              color: Colors.black
-            ),),
-            style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.white,
-              shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
-            ),
-          ),
-          const SizedBox(height: 24),
-          Flexible(
-            child: Container(),
-            flex: 2,
-          ),
-          Row(mainAxisAlignment: MainAxisAlignment.center, children: [
-            const Text(
-              "Don't have an account?",
-              style: TextStyle(
-                color: Colors.black,
-                fontSize: 16,
-              ),
-            ),
-            GestureDetector(
-              onTap: tosignuppage,
-              child: Text(
-                "Signup now",
-                style: TextStyle(
-                  fontWeight: FontWeight.bold,
-                  fontSize: 16,
-                ),
-              ),
-            )
-          ])
-        ],
-      ),
+
     )));
   }
 }

@@ -1,7 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/common_widget/tab_button.dart';
-import 'package:flutter_pages/home_page.dart';
+import 'package:sakhi_app/common_widget/tab_button.dart';
+import 'package:sakhi_app/home_page.dart';
+import 'package:sakhi_app/faqs.dart';
+import 'package:sakhi_app/predictions.dart';
+import 'package:sakhi_app/chatbot_ui.dart';
 
 class MainTabView extends StatefulWidget {
   const MainTabView({Key? key}) : super(key: key);
@@ -29,12 +32,11 @@ class _MainTabViewState extends State<MainTabView> {
             width: 65,
             height: 65,
             decoration: BoxDecoration(
-                color: Color.fromRGBO(255, 221, 230, 1.0),
-                borderRadius: BorderRadius.circular(35),
-                ),
+              color: Color.fromRGBO(255, 221, 230, 1.0),
+              borderRadius: BorderRadius.circular(35),
+            ),
             child: Image.asset(
               'assets/home_tab_select.png',
-
               width: 35,
               height: 35,
             ),
@@ -44,8 +46,6 @@ class _MainTabViewState extends State<MainTabView> {
       bottomNavigationBar: BottomAppBar(
           color: Color.fromRGBO(255, 221, 230, 1.0),
           child: Container(
-
-
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceAround,
               children: [
@@ -61,25 +61,26 @@ class _MainTabViewState extends State<MainTabView> {
                       }
                     }),
                 TabButton(
-                    icon: "assets/chat_tab_new.png",
+                    icon: "assets/chat_tab2.png",
                     selectIcon: "assets/chat_tab_select.png",
                     isActive: selectTab == 1,
                     onTap: () {
                       selectTab = 1;
-                      // currentTab = const SelectView();
+                      currentTab = const Home();
                       if (mounted) {
                         setState(() {});
                       }
                     }),
-
-                const  SizedBox(width: 40,),
+                const SizedBox(
+                  width: 40,
+                ),
                 TabButton(
                     icon: "assets/activity_tab.png",
                     selectIcon: "assets/activity_tab_select.png",
                     isActive: selectTab == 2,
                     onTap: () {
                       selectTab = 2;
-                      // currentTab = const PhotoProgressView();
+                      currentTab = const Predictions();
                       if (mounted) {
                         setState(() {});
                       }
@@ -90,7 +91,7 @@ class _MainTabViewState extends State<MainTabView> {
                     isActive: selectTab == 3,
                     onTap: () {
                       selectTab = 3;
-                      // currentTab = const ProfileView();
+                      currentTab = const InsightsPage();
                       if (mounted) {
                         setState(() {});
                       }

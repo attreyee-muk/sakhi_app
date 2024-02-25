@@ -11,6 +11,10 @@ class AppHeader extends StatelessWidget {
       width: double.infinity,
       height : 200,
       color: Color.fromRGBO(255, 221, 230, 1.0),
+      child: Center(child: Text("Welcome to our app",style: TextStyle(
+        fontSize: 30,
+        fontWeight: FontWeight.bold
+      ),)),
     );
   }
 }

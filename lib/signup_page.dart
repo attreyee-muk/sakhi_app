@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/home_page.dart';
-import 'package:flutter_pages/login_page.dart';
-import 'package:flutter_pages/uihelper.dart';
+import 'package:sakhi_app/home_page.dart';
+import 'package:sakhi_app/login_page.dart';
+import 'package:sakhi_app/uihelper.dart';
 
 class SignUpPage extends StatefulWidget {
   const SignUpPage({super.key});

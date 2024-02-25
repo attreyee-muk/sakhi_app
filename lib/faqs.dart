@@ -33,13 +33,6 @@ class _InsightsPageState extends State<InsightsPage> {
         heading: "What are the symptoms of UTI",
         body:
             "Urinary Tract Infection (UTI) is characterized by various symptoms stemming from the inflammation of the urinary tract, commonly caused by bacteria. The hallmark symptom is a persistent, burning sensation during urination. Individuals with UTIs may experience increased urgency and frequency of urination, often accompanied by lower abdominal pain or discomfort. The urine may appear cloudy or have a strong, unpleasant odor."),
-    Item(
-        heading: "1fbfb23",
-        body:"AdfbdfngnBC"),
-    Item(
-        heading: "4fdbdfb56",
-        body:
-            "DdfbdfbEF"),
   ];
   @override
   Widget build(BuildContext context) {

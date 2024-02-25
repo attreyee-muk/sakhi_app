@@ -2,13 +2,13 @@ import 'dart:async';
 
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/first_page.dart';
-import 'package:flutter_pages/home_page.dart';
-import 'package:flutter_pages/login_page.dart';
-import 'package:flutter_pages/main.dart';
+import 'package:sakhi_app/first_page.dart';
+import 'package:sakhi_app/home_page.dart';
+import 'package:sakhi_app/login_page.dart';
+import 'package:sakhi_app/main.dart';
 import 'package:animated_text_kit/animated_text_kit.dart';
-import 'package:flutter_pages/signup_page.dart';
-import 'package:flutter_pages/uihelper.dart';
+import 'package:sakhi_app/signup_page.dart';
+import 'package:sakhi_app/uihelper.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

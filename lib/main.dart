@@ -1,15 +1,16 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_pages/Messages.dart';
-import 'package:flutter_pages/chatbot_ui.dart';
-import 'package:flutter_pages/doctor_info.dart';
-import 'package:flutter_pages/faqs.dart';
-import 'package:flutter_pages/home_page.dart';
+import 'package:sakhi_app/Messages.dart';
+import 'package:sakhi_app/chatbot_ui.dart';
+import 'package:sakhi_app/doctor_info.dart';
+import 'package:sakhi_app/faqs.dart';
+import 'package:sakhi_app/home_page.dart';
 
 import 'package:dialog_flowtter/dialog_flowtter.dart';
-import 'package:flutter_pages/splash_screen.dart';
-import 'package:flutter_pages/login_page.dart';
+import 'package:sakhi_app/predictions.dart';
+import 'package:sakhi_app/splash_screen.dart';
+import 'package:sakhi_app/login_page.dart';
 
 import 'firebase_options.dart';
 

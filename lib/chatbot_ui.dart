@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:dialog_flowtter/dialog_flowtter.dart';
-import 'package:flutter_pages/Messages.dart';
+import 'package:sakhi_app/Messages.dart';
 
 
 // class Messages extends StatelessWidget {

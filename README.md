@@ -1,4 +1,4 @@
-# flutter_pages
+# Sakhi App
 
 A new Flutter project.
 

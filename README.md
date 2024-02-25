@@ -1,16 +1,8 @@
 # Sakhi App
 
-A new Flutter project.
+We're developing a user-friendly app to predict PCOS/PCOD, UTI(Urinary Track Infection) and Endometriosis and Post Menopausal Syndrome based on input symptoms. For pre-menopausal users, we estimate menopausal onset and assess post-menopausal concerns like Depression and Loneliness. By considering diverse symptoms, our app aims to detect abnormal hormonal conditions in women by taking the non clinical data, prompting them to seek a medical advice according to their likelihood of getting diagnosed with the medical conditions. We are creating an android application for this with the goal of rolling it out on PlayStore and helping more women.  
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can download the apk of our app through this link - 
+You can then run it on your android phones

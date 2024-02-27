@@ -4,6 +4,6 @@ We're developing a user-friendly app to predict PCOS/PCOD, UTI(Urinary Track Inf
 
 ## Getting Started
 
-You can download the apk of our app through this link - 
+You can download the apk of our app through this link - https://drive.google.com/file/d/1ngRVBYk0DdvPasX0BIYt_qTzgn_BPWqe/view?usp=drive_link
 
 You can then run it on your android phones
